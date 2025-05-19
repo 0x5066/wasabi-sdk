@@ -1,0 +1,42 @@
+Documentation process guidelines
+================================
+
+See Documenting Sytle.txt in sdk\docs\ first.
+
+
+The documentation process will be done in two seperate processes: 
+
+-1- documenting of classes which.
+-2- updating header files with new documentation.
+
+
+Documenting of classes
+======================
+
+The documenting of classes will require the use of the SourceOffsite client as well as two basic gnu tools: diff and patch.
+
+How to document:
+
+1. Fetch header (and actual cpp file if necessary)
+2. Document class, methods and enum's.
+3. Use diff to make a patch against the ORIGINAL header file.
+	Rename the patch file to ORIGINAL_HEADER_NAME.h.patch.
+4. Everyday, send new patches to Aus or simply ftp to documentation server (to be setup...)
+
+Only completely documented header file patches will be sent. No partially documented header files 
+will be updated. This is to avoid loss of sync between sourceoffsite server files and files that are being
+documented.
+
+Updating header files
+=====================
+
+Updates to the header files to include the documentation (thru the use of patches and patch) will be done on a 
+daily basis. Once a day, all the patches produced in that day, will be applied to the source files which will then
+be updated on the sourceoffsite server.
+
+There will be a list of files recently patched on the documentation server, as well as the patches that are pending.
+(patches that are waiting to be applied ...)
+
+A small note to the core development team, if you add documentation straight into the header while working on a new 
+class, please, feel free to check it in at any time =)
+

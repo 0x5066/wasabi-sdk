@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<WinampLocaleDefinition language="Français" author="frenchies@winamp.com">
+  <accelerators>
+    <accelerator bind="Z" action="none"/>
+    <accelerator bind="W" action="prev"/>
+  </accelerators>
+
+  <translations>
+    <translation from="Main window" to="Fenêtre principale"/>
+    <translation from="Thinger" to="Truqueur"/>
+    <translation from="Minibrowser" to="Mini-butineur"/>
+    <translation from="Playlist editor" to="Editeur de liste"/>
+    <translation from="Media Library" to="Librairie de médias"/>
+    <translation from="Minimize Winamp" to="Minimizer Winamp"/>
+  </translations>
+</WinampLocaleDefinition>

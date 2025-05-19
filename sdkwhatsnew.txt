@@ -1,0 +1,154 @@
+This is a file with notes as to what changed between releases of the SDK.
+
+Build 471:
+
+Component Code:
+	Okay, checkout the component modules for all the examples.  Things
+	  have changed.  We're trying to streamline the entirety of the process
+	  of getting a WAC built and going, and it's going to be great for anyone
+	  making a new WAC now.  But you're going to have to do a little more
+	  twiddling to any code you have now.
+
+	The changes to your Component Code are as follows:
+
+	Window Creation Services:
+	  You want easy?  We've got easy.  Look at example1.cpp -- to have a window
+	  that's tied to the activation of your component guid, all you need to do is:
+	    registerService(new WndCreateCreatorSingle<CreateWndByGuid<Example1Wnd>>);
+	  To get an icon into the thinger, do this:
+	    registerService(new WndCreateCreatorSingle<CreateBucketItem<Example1Wnd>>);
+	  To get listed in the main RMB list under "components" call this:
+	    registerAutoPopup(getGUID(), getName());
+
+	  However, you must add the following static methods to your window class:
+	    static const char *getWindowTypeName();
+	    static GUID getWindowTypeGuid();
+	    static void setIconBitmaps(ButtonWnd *button);
+	  Please check example1wnd.h and .cpp for more details.
+
+	Component Name:
+	  While WAComponentClient::getName is NOT removed, it is deprecated.  We 
+	  prefer you to pass your component's name as a parameter to the constuctor of
+	  your parent.
+
+	NOTE: This means, you may notice, that you won't be able to "get your window pointer"
+	  anymore in your WAC.  You are strongly encouraged to create windows classes that
+	  can survive multiple instantiation, and using a pointer inside a global variable
+	  (which is what your wac is) doesn't quite fit that concept.  You probably can easily
+	  figure out how to get around this issue, but we don't want to encourage you to create
+	  code that may be problematic in the future.
+
+	Now, we've done everything we can to clean up our interfaces to no longer assume your
+	  component has a window pointer.  :)  We encourage you to do the same.  In that spirit,
+	  here are the interface changes that have been made:
+
+
+	Skinfile Registration:
+	  registerSkinFile("yourskinfile") should be a bit easier now, eh?
+
+	getMetrics:
+	  Please use the getPreferences() from your window class instead of getMetrics()
+	  
+	cmdbar_createButton:
+	  This is being replaced and the replacement is not yet ready.
+
+	onNotify:
+	  The skin-event notifications of onNotify are deprecated.  You should use
+	  the skin callback objects with your window class, see skincb.h
+
+Example Code:
+	Example code is migrating along with the sdk, and I'm still catching up.  The
+	  rest of the examples should be back in the next SDK.
+	  
+
+
+SDK beta 3:
+
+User Interface:
+	- Notification, via notifmsg.h enum, et al, has been changed somewhat.
+	  The RootWnd object now carries a "notification ID" which can be
+	  queried via getNotifyId(), and BaseWnd has the matching setNotifyID()
+	  method.  The setButtonId() method for buttons has been removed.
+	  The proper way to handle notification identification is to query the
+	  pointer passed in the childNotify event for its identification number.
+	  The example code has been updated to reflect these changes.
+
+Component Code:
+	- WAComponentClient now derives from CfgItemI so you don't have to.
+	  The main thing to remember is to pass your component name into
+	  WaComponentI's. WAComponentClient::getName() now returns the CfgItem
+	  name by default, but you can still override it and return something
+	  else too.
+	- You no longer have to call WaComponentClient::onDestroy() from
+	  your onDestroy() (but it won't hurt if you do)
+	- Please get rid of RootCompWnd stuff. It's not needed any more
+	  and will go away at some point.
+	- getDisplayComponent() is now history since it's unnecessary now
+
+Config:
+	- There is a new file, attribs/attribs.h that includes all code from
+	  attrint.h, attrbool.h, etc.
+
+SDK beta 2++ (2001.12.17):
+
+Example Code:
+	- A bug in ExampleIII that prevented it from operating properly has 
+	  been fixed.
+	- A new Example project has been created: ExampleDelta.  This Example
+	  is not yet complete but works well enough when you don't try to abuse
+	  the poor thing.  It will scan an HTML url for media links and allow you
+	  to enqueue them in the player.
+	- Another small project, teststring, shows many of the methods on String and how
+	  to use them safely and properly.
+
+User Interface:
+	- The StylePosWnd object has been created.  This is a complicated object whose
+	  purpose is to act as a container, like ContWnd, but also to allow its child
+	  objects to define their positions in such a manner that the StylePosWnd can
+	  properly update both their sizes and positions on the fly.
+
+
+SDK beta 2:
+
+Example Code:
+	- The "Frames" tab originally in ExampleB has been given its own 
+	  project, ExampleIII.  This example concerns itself with things
+	  like loading files over the internet, processing XML documents,
+	  launching the minibrowser, etc etc etc.
+	- The "Frames" tab now in ExampleB looks similar to what was there
+	  before, but only exposes how to use the UI objects with a much
+	  less ambitious set of functionality.  Obviously, before you tackle
+	  ExampleIII, you'll want to view the new ExampleBFrameWnd.cpp file.
+	- As previously promised, the need to keep your own buffer around
+	  when using EditWnd has been deprecated by the creation of EditWndString
+	  in "editwndstring.cpp" in the common folder.  This module is also
+	  a good representative example of how to extend our already existing
+	  code modules and contains a large number of comments to help you
+	  understand the proper way (in our opinion) to do so.
+
+Image loading:
+	- Pixel type is now ARGB32 (32-bit unsigned int) instead of just int.
+	- main EXE now allocates memory for bitmaps for you
+	- api now has sysMalloc & sysFree. Use sysMalloc when you allocate
+	  the bitmap you return
+
+Canvas
+	- simplified Canvas::pushPen to allow simple pen creation with the
+	  given color
+	- added some defined pen styles (like PENSTYLE_SOLID, PENSTYLE_DOT)
+
+Services
+What:	Registering and deregistering of services should now pass through
+	WAComponentClient::registerService() and deregisterService(). Create
+	the service via new and WAComponentClient will auto-delete it for you.
+	(See pngload.wac and jpgload.wac)
+Why:	WAComponentClient now keeps a PtrList of services. Add your service
+	generators to it whenever you want (in the constructor or during
+	the session) with registerService() and it will be auto-registered for
+	you, and auto-deregistered on shutdown.
+	You can still register and deregister services directly through
+	the api* yourself if you want.
+
+
+SDK beta 1:
+	everything :)

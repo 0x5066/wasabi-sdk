@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<WinampAbstractionLayer version="0.6">
+
+ <groupdef id="ExampleMWGroupId">
+
+  <vis
+    id="vis"
+    x="0" y="0"
+    w="72" h="16"
+  />
+
+ </groupdef>
+
+</WinampAbstractionLayer>

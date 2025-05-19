@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<WinampAbstractionLayer version="0.7">
+
+  <!-- You know how to build groups, right?  No?  GO TO NSDN NOW, NAUGHTY CODER! -->
+
+  <groupdef id="ExamplePrefsGroup.Attribs.Content">
+
+    <!-- *** Checkbox for the Bool Attrib -->
+
+    <Wasabi:CheckBox id="bool_attrib" x="4" y="0" text="Checkbox for the Bool Attrib" 
+    cfgattrib="{27C266EF-E6D1-471d-9AFB-62208182FB0A};BoolAttrib"/>
+
+
+    <!-- *** Slider for the Int Attrib -->
+
+    <Wasabi:Text id="text for the int_attrib" text="Slider for the Int Attrib" 
+    x="0" y="20" w="0" h="16" relatw="1" />
+
+    <Wasabi:HSlider id="int_attrib" x="12" y="40" w="-24" h="10" relatw="1"
+    high="256" cfgattrib="{27C266EF-E6D1-471d-9AFB-62208182FB0A};IntAttrib" />
+
+
+    <!-- *** EditBox for the String Attrib -->
+
+    <Wasabi:Text id="text for the int_attrib" text="EditBox for the String Attrib" 
+    x="0" y="55" w="0" h="16" relatw="1" />
+
+    <Wasabi:EditBox id="wasabi.edit" x="12" y="72" w="-24" h="20" relatw="1"  
+    cfgattrib="{27C266EF-E6D1-471d-9AFB-62208182FB0A};StringAttrib" />
+
+
+  </groupdef>
+
+
+  <groupdef id="ExamplePrefsGroup.Info.Content">
+
+    <!-- You could put your contact info here, if'n ya wanna :) -->
+
+    <Wasabi:Text id="Info.Line1" text="======== THIS IS A TEST ========" 
+    x="0" y="0" w="0" h="16" relatw="1" />
+    <Wasabi:Text id="Info.Line2" text="HAD THIS BEEN AN ACTUAL PREFS BOX"
+    x="0" y="20" w="0" h="16" relatw="1" />
+    <Wasabi:Text id="Info.Line3" text="YOU WOULD HAVE ALREADY KNOWN IT.    (schweitn rules)"
+    x="0" y="40" w="0" h="16" relatw="1" />
+
+  </groupdef>
+
+
+  <groupdef id="ExamplePrefsGroup.Preferences.Content">
+
+    <!-- So, here, we make 2 TitleBox objects to provide group wrapping around
+         the attrib controls in the "Attribs" and some text in "Info" -->
+
+    <Wasabi:TitleBox x="0" y="0" w="0" h="115" relatw="1" relath="0" 
+    title="Attribs Title" content="ExamplePrefsGroup.Attribs.Content" />
+    <Wasabi:TitleBox x="0" y="123" w="0" h="80" relatw="1" relath="0" 
+    title="Info Title" content="ExamplePrefsGroup.Info.Content" />
+
+  </groupdef>
+
+
+  <groupdef id="TheNameOfTheGroupToLoad">
+
+    <Wasabi:TitleBox x="0" y="0" w="0" h="0" relatw="1" relath="1" 
+    title="Preferences Title" content="ExamplePrefsGroup.Preferences.Content" />
+
+  </groupdef>
+
+</WinampAbstractionLayer>

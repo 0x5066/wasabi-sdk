@@ -1,0 +1,7 @@
+
+- copy generic.h, generic.cpp, rename them appropriately
+- edit all the //EDITME stuff
+- make a new DLL project
+- set the output file to whatever.wac
+- add your .cpp to your project
+- add waclient.cpp to your project

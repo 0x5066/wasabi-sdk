@@ -1,0 +1,563 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "ExampleCoreCallback"=.\ExampleCoreCallback\ExampleCoreCallback.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ExampleDragDrop"=.\ExampleDragDrop\ExampleDragDrop.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ExampleDsp"=.\ExampleDsp\ExampleDsp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ExampleHTTPXML"=.\ExampleHTTPXML\examplehttpxml.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name bfcjnetlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ExampleMetaData"=.\ExampleMetaData\ExampleMetaData.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ExamplePl"=.\ExamplePl\ExamplePl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ExampleStudio"=.\ExampleStudio.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name bfcjnetlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name example1
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name exampleattrib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name examplecodegui
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ExampleCoreCallback
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ExampleHTTPXML
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ExampleMetaData
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name examplepopup
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name generic
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name eso
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name examplefreeformwac
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name exampleitemsequencer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name examplecanvas
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ExampleVidSource
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name examplevisdata
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name xuiwac
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name exampleexternelement
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ExamplePl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name exampleprefsgroup
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name paintspy
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ExampleDsp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name examplehbutton
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ExampleDragDrop
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name exampleoswnd
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ExampleVidSource"=.\ExampleVidSource\ExampleVidSource.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "bfc"=..\bfc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "bfcjnetlib"=..\bfcjnetlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "eso"=.\ExampleScriptObject\eso.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "example1"=.\Example1\example1.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "exampleattrib"=.\ExampleAttrib\exampleattrib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "examplecanvas"=.\ExampleCanvas\examplecanvas.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "examplecodegui"=.\ExampleCodeGUI\examplecodegui.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "exampleexternelement"=.\ExampleExternElement\exampleexternelement.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "examplefreeformwac"=.\ExampleFreeFormWac\examplefreeformwac.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "examplehbutton"=.\ExampleHButton\examplehbutton.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "exampleitemsequencer"=.\ExampleItemSequencer\exampleitemsequencer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name bfcjnetlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "exampleoswnd"=.\ExampleOSWnd\exampleoswnd.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "examplepopup"=.\ExamplePopup\examplepopup.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "exampleprefsgroup"=.\ExamplePrefsGroup\exampleprefsgroup.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "examplevisdata"=.\ExampleVisData\ExampleVisData.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "generic"=.\GenericWACTemplate\generic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "paintspy"=.\ExamplePaintCB\ExamplePaintCB.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "waclient"=..\waclient\waclient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "xuiwac"=.\xuiobject_template\xuiwac.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name bfc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name waclient
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

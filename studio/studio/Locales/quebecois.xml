@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<WinampLocaleDefinition language="Language du beau pays du Québec" author="denny@winamp.com">
+  <accelerators>
+    <accelerator bind="w" action="previous"/>
+  </accelerators>
+
+  <translations>
+    <translation from="Main window" to="La Fenetre habituelle"/>
+    <translation from="Thinger" to="Fourre-chose"/>
+    <translation from="Minibrowser" to="Butineur Incorpore"/>
+    <translation from="Equalizer" to="Retoucheur de frequences"/>
+    <translation from="Playlist editor" to="Modificateur de Listes"/>
+    <translation from="Media Library" to="Mediatheque"/>
+    <translation from="Skins" to="Maquillage"/>
+    <translation from="Locales" to="Dialecte"/>
+    <translation from="Components" to="Supplements"/>
+    <translation from="Report bugs" to="Raporter un bogue"/>
+    <translation from="Scale" to="Etirer"/>
+    <translation from="Close" to="Terminaison"/>
+    <translation from="Play" to="Jouer la musique"/>
+    <translation from="Playback" to="Commander la musique"/>
+  </translations>
+</WinampLocaleDefinition>

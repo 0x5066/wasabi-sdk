@@ -1,0 +1,117 @@
+How to document your classes
+============================
+
+We're using JavaDoc style documenting in all of our header files.
+
+Comment syntax
+==============
+
+A comment always starts with /** followed by a newline, then, the actual paragraphs of text associated with 
+the class, method, enum, etc. After that, a blank line followed by the @tag's you wish to use for that class, method, etc.
+It's then terminated by */ on it's own line.
+
+/**
+  PARAGRAPH...
+  ...
+  ...
+  
+  OTHER PARAGRAPH...
+  ...
+  ...
+  
+  @tag  text
+  @tag  text
+  @tag  text
+*/
+
+There's also one line style comments which are like so:
+
+/** PARAGRAPH... */ which we can use for quick and dirty documentation and notes.
+
+Here's a how to document a class quick and dirty style.
+
+Example class
+=============
+
+/**
+  PathParser is a class that parses a DOS/Windows (example: C:\DOS) 
+  style path as well as a UNIX style path (example: /usr/local/bin/).
+ 
+  @short    Path parser for Windows and UNIX style paths.
+  @cat      SDK 
+*/
+class COMEXP PathParser {
+public:
+  /**
+    When PathParser is instantiated, the contructor takes the path to 
+    parse and the seperators to use to parse the path. It will then
+    parse the path using the seperators and make the parsed elements
+    available. If no seperators are given \ and / are used.
+   
+    @param str         The path to parse.
+    @param separators  String that contains the separators to use. Single character seperators only. 
+                       No delimiters between seperators in the string.
+  */
+  PathParser(const char *str, const char *separators="\\/");
+
+  /**
+    Gets the number of path elements found in the path.
+   
+    @ret  The number of path elements found.
+  */
+  int getNumStrings() const { return strings.getNumItems(); }
+  
+  /**
+    Gets a specific path element from the parsed path.
+    If the element requested is out of bounds or does 
+    not exist, NULL is returned.
+   
+    @ret  The requested path element or NULL if it doesn't exist.
+  */
+  char *enumString(int i) const { return strings[i]; }
+
+  /**
+    Gets the last path element from the parsed path.
+   
+    @ret  The last path element from the parsed path.
+  */
+  char *getLastString() const { return strings.getLast(); }
+
+private:
+  String str;
+  PtrList<char> strings;
+};
+
+List of tag's available.
+========================
+
+For Classes:
+
+@short  [description]   : A short description of the class
+@author [description]   : The author of the class (ALWAYS set to Nullsoft if developed internally)
+@ver    [description]   : The version of the class (ALWAYS set to 1.0)
+@see    [references]    : References to other related documentation (ex: @see SomeOtherClass#SomeOtherMethod AnotherClass)
+@cat    [description]   : The category of the class (SDK, Winamp3).
+
+For Methods:
+
+@see    [references]    : As above.
+@ret    [description]   : A description of the return value.
+@except [list]          : List the exceptions that could be thrown by this method.
+@param  [name] [description]  : The name of the parameter. A description of the parameter and it's value ranges if it applies.
+
+For Constants, Enums, Properties:
+
+@see    [references]    : References to other related documentation (like, methods that use this enum, constant or property, or can manipulate it).
+
+
+Always put the @tag's in the order they are enumerated above, just for standards sake. And the parser somewhat relies on 
+@param's being last.
+
+And yes, you can start documenting all your stuff now. YAY! YAY! YAY! YAY!
+
+I will build the documentation twice a week at least. Tuesday and Thursday. And post on NSDN (www.winamp.com/nsdn/).
+The build that's done on thursdays will always be posted on genghis only (http://genghis.winamp.com/~aus/wasabi_docs/).
+
+Ghislain Lacroix
+aus@winamp.com

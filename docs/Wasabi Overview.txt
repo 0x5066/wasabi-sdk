@@ -1,0 +1,53 @@
+WASABI GENERAL MANUAL
+by Brennan Underwood, age 27
+
+Intro
+
+	What up, yo. This is the readable manual for Wasabi. This is not the reference manual. This is the one you print out and read on the toilet. The other one documents API calls and things.
+
+	What is Wasabi? Wasabi stands for Winamp System Architecture Building Interface. Or something. Whatever. I just like wasabi a lot. The point is it´s a kick-ass system for creating Winamp (and other players).
+
+	It consists of a main kernel (studio.exe), a variable number of additional user-added components, and a user-selected skin. Nearly all aspects of the user interface and experience are configurable and customizable.
+
+The kernel
+	At startup, studio.exe starts up various services. First it creates the base API pointer and other services:
+	- component API
+	- window tracker (handles docking the various windows created by skins and components)
+	- systray menu
+	- metadata database
+	- skin engine
+	- playback engine
+
+API
+	- base API ptr
+	- expandable class
+
+Skins
+	- switchable
+	- event driven scripting
+
+Components
+	- user objects that persist
+	- access to API
+	- callbacks
+	- services
+	- how to make a new component
+
+Playback core
+	- plugins
+	- stackable filters
+	- multiple instances
+
+Database
+	- metadata provider
+	- queries, multiple views
+
+BFC
+	- BaseWnd heirarchy
+	- dispatchable classes
+
+Coding style
+	- formatting
+	- C++ tips/idioms we use
+	- classes to try to use
+

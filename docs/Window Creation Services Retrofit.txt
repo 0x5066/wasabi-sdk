@@ -1,0 +1,79 @@
+
+Please retrofit your componentry to be compliant with the new Window Creation
+Services by completing the steps outlined in this document.
+
+This document references code found in:
+		common/SimpleWndCreate.h
+		exampleb/ExampleB.h
+		exampleb/ExampleB.cpp
+
+Having these three files open and available to follow along with this document
+will increase your standard of living, significantly, for at least 3 hours
+after reading.  You also might see an increase in your basal metabolic rate if
+you realize that I tagged the "Start" and "End" sections of code to be added
+with "// WCS: " so you can easily find it in ExampleB.h and ExampleB.cpp
+
+Honest.
+
+Or Something.
+
+1)  Add the static methods block from SampleWindowCreationObj (which is found
+in SimpleWndCreate.h) to your component class definition, as done in ExampleB.h
+
+
+
+2)	Create the functionality for the "static WACNAME & Main()" method by
+creating the static pointer to your component class, filling it in the
+constructor to your component class, and optionally asserting that you're only
+ever going to instantiate a single copy of your component (which is a good idea
+when you're playing with GUIDs, eh?)
+
+
+
+3)	Add the non-static member functions called by the static block.  The 
+functions you will likely need to add are:
+	int destroyWindow(RootWnd * deadWnd);
+	ThingerBitmapInfo getThingerBitmapInfo();
+Do whatever you need to do in them.  Please visit ExampleB.cpp to see how I use
+them.
+
+
+
+4)	Instantiate the WCS template as a data member of your component module,
+using your component class as the ThingerWndCreate parameter (ExampleB.cpp):
+
+	static waServiceT< svc_windowCreate,
+		ThingerWndCreateSvc< WACNAME > > myWndCreateSvc;
+
+In order to instantiate that template, you will need to include these files:
+	#include "../studio/services/servicei.h"
+	#include "../studio/services/svc_wndcreate.h"
+	#include "../common/SimpleWndCreate.h"
+
+
+
+5)	Add the following method (as seen in ExampleB.cpp):
+	void onRegisterServices() {
+	  // ***  Register our window creation service here.
+	  //      If we don't do this, we don't get a window.
+	  api->service_register(&myWndCreateSvc); 
+	  api->register_autoPopupGUID(getGUID(), getName());
+	}
+
+
+
+6)	Obviously, if we're registering a service, we should probably deregister
+our service as well.  Do so in your onDestroy() method (as in ExampleB.cpp) :
+	void onDestroy() {
+	  // ***  Deregister our window creation service here.
+	  //      If we don't do this, we get a memory leak.
+	  api->service_deregister(&ExampleB_WndCreateSvc);
+	  // *** Be sure to delete all your windows etc HERE, not in the destructor,
+	  //     because the API pointer might be invalid in the destructor
+	  delete wnd; wnd = NULL;
+	  WACPARENT::onDestroy();
+	}
+
+7)	There's also been a change to no longer allow support for BMP data as studio
+data.  You will need to alter your source graphics for your resource file to use
+PNG data.  Please see ExampleB.rc for how to do this.

@@ -1,0 +1,210 @@
+Winamp 3 coding style sheet
+ver 2 -- 23-Sep-2000 brennan
+ver 3 -- 04-jan-2000 brennan	more C++ coding tips added
+ver 4 -- 21-may-2001 brennan	Dispatchable example
+
+// *********** defining a class in general **********
+
+#define CLASSNAME_PARENT ParentClass		// #defines all CAPS
+const int MAGICNUM=47;	// use const int instead of #define when possible
+class ClassName : public CLASSNAME_PARENT {	// front and bi capitalized
+public:	// section names fully to the left
+  ClassName();
+  ~ClassName();
+
+  void doSomething();	// bicapitalized
+
+protected:
+  void andSomethingElse();
+
+private:
+  int privdata;	// all lowercased
+  // don't use 1- or 2- character member names so as to avoid conflict
+  // with common method parameters (such as i, w, h, etc.)
+};
+
+ClassName::ClassName() {
+  // init data here
+}
+
+void ClassName::doSomething() {	// brackets with the def
+  // note the 2-spaces used per indentation level. no tabs!
+
+  int gaybag=7;	// define stuff as you need it, variables all lowercase
+  if (gaybag) {	// space after if (). same for while, for, etc.
+    plorf();
+  }
+
+  switch (gaybag) {
+    case 1:
+    break;
+    case 2: {// use {} if you need stack varables, limit scope whenever possible
+      int flerpo;
+      // something
+    }
+    break;
+    case 3:
+      return;	// indent the return so it doesn't look like a break
+    default:
+      // blah
+    break;
+  }
+}
+
+// ******** header file stuff **********
+
+#ifndef _FILENAME_H
+#define _FILENAME_H
+
+#include <sysfile.h>	// system files first
+
+#include "../common/std.h" // note forward slashes
+
+// then #defines and enums
+#define WHATEVER 7	// avoid macros, but make em uppercase if you use em
+namespace Blonk {	// put enums in namespaces when appropriate
+  enum { BLAH, PLOO };
+  const int flork = 89;
+};
+
+// classes and function prototypes here
+
+// externs last
+extern GUID component_guid;
+
+#endif
+
+// ******** naming a component class **********
+
+class WACname : public WAComponentClient {
+};
+
+// ******** for fully abstract base classes, name them like this ********
+
+// this is only an interface
+class AbstractClass {
+public:
+  virtual int whatever()=0;
+};
+
+// this is the implementation of the interface
+class AbstractClassI {
+public:
+  virtual int whatever();
+};
+
+// ******** Dispatchable classes **********
+
+Here is an example of a safe interface to an object. The interface is Thing
+and the instance of it is ThingI.
+
+class Thing : public Dispatchable {
+public:
+  int method1(int a, int b) { return _call(METHOD1, 0, a, b); }
+  void method2(float z) { _voidcall(METHOD2, z); }
+
+  enum {
+    METHOD1,
+    METHOD2,
+  };
+};
+
+class ThingI : public Thing {
+public:
+  ThingI();
+
+  // Dispatchable handles both regular and virtual methods
+  int method1(int a, int b);
+  virtual void method2(float z);
+
+  RECVS_DISPATCH;
+};
+
+// in .cpp file
+#define CBCLASS ThingI
+START_DISPATCH;
+  CB(METHOD1, method1);
+  VCB(METHOD2, method2);
+END_DISPATCH;
+
+// ******** Code markers **********
+
+- Use //CUT for something that is commented out because it needs to go away
+once you're sure it won't need to come back.
+
+- Use //TODO for something that you intend to come back and improve
+
+- Use //FUCKO for something you need to fix because it's just broken or
+  wrong. Stuff that someone really must look at before a release.
+
+--------------------------------------------------------
+C++ coding notes
+--------------------------------------------------------
+
+*** 21-may-2001
+
+Seriously. If you use char* when you could use const char*, I might have to kill
+you.
+
+
+*** 04-Jan-2001
+
+- Do NOT use char *, STRDUP and FREE any more for strings. Always use String
+if at all possible. It's clean and fast and all inline and basically free.
+It auto-deletes in the destructor and handles assignment properly.
+
+- You don't usually need to use a PtrList<>*. Just put the PtrList<> in your
+object. It will free its memory in its destructor when your object is destroyed,
+and it only takes up 12 bytes of memory when empty so you're not saving much
+by allocating it with new.
+
+- Any time you find yourself coding the same basic thing twice, try to invent
+a useful object that can do the job in a general fashion. i.e. PathParser.
+Remember, there are two basic kinds of classes: abstract (fat) & concrete (basic
+types). We have plenty of the former and don't use enough of the latter.
+
+
+*** 11-Dec-2000
+
+- Use const for pointers whenever possible:
+	- To guarantee a function will not modified the pointed-to object
+	- return const * to guarantee no one can modify what you're returning
+	- This is especially important for char *'s
+
+- Use const ints instead of #define for magic numbers. Use enums when you
+just need a range of magic numbers. Anonymous enums are ok for flags.
+
+*** 18-Nov-2000
+
+- let's stop using C-style casts. All code should start using
+  static_cast : for casting from/to void *
+  reinterpret_cast : for casting from/to ints, LPARAMs, etc.
+  By switching some code to use these I've already found some possibly weird
+  behavior that could have come up in the API system.
+
+- use the const operator on all methods where it works, i.e. simple get fns
+	int getNumItems() const { return nitems; }
+
+***
+
+- Remember, it is safe to call 'delete' with a NULL pointer.
+	"if (ptr != NULL) delete ptr;" is redundant.
+
+- If a function does not have to be virtual, don't make it virtual
+
+- Always make destructors virtual (*if* another module could delete them)
+
+- Make constructors protected if they should never be instantiated.
+  This is almost always true for classes that are meant to be inherited
+  from.
+
+- Never call any virtual functions from within a constructor or destructor
+  unless you are trying to create insane bugs
+
+- PLEASE try to keep the same order for functions in the .CPP as in the .H
+
+- Never ever check in code with known bugs
+
+- Code as if the next person who might have to work on your code is a 6'+
+  210 lb. irritable heavy-drinking sumo champ who knows where you live. Because
+  I do.

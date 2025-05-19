@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<WinampAbstractionLayer version="0.6">
+
+ <elements>
+   <bitmap id="ffc.logo" file="logo.png"/>
+ </elements>
+
+
+ <groupdef id="ffc.main.window"  >
+
+   <vis id="vis1" x="10" y="10" w="72" h="16" channel="1" />
+   <vis id="vis2" x="-82" relatx="1" y="10" w="72" h="16" channel="2" fliph="1" />
+   <vis id="vis3" x="10" y="-26" relaty="1" w="72" h="16" channel="1" flipv="1" mode="2"/>
+   <vis id="vis4" x="-82" relatx="1" y="-26" relaty="1" w="72" h="16" channel="2" fliph="1" flipv="1" mode="2"/>
+   <layer id="ffc.layer1" image="ffc.logo" x="0" y="0" sysregion="1"/>
+
+ </groupdef>
+
+
+</WinampAbstractionLayer>
